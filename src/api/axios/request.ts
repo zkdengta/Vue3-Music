@@ -34,7 +34,7 @@ class RequestHttp {
 			(config: CustomAxiosRequestConfig) => {
 				// const userStore = useUserStore();
 				// 当前请求不需要显示 loading，在 api 服务中通过指定的第三个参数: { loading: false } 来控制
-				config.loading ?? (config.loading = true);
+				config.loading ?? (config.loading = false);
 				config.loading && showFullScreenLoading();
 				if (config.headers && typeof config.headers.set === "function") {
 					// config.headers.set("x-access-token", userStore.token);
@@ -59,12 +59,19 @@ class RequestHttp {
 				if (data.code == ResultEnum.OVERDUE) {
 					// userStore.setToken("");
 					// router.replace(LOGIN_URL);
-					ElMessage.error(data.msg);
+					ElMessage.error(data.message);
 					return Promise.reject(data);
 				}
 				// 全局错误信息拦截（防止下载文件的时候返回数据流，没有 code 直接报错）
-				if (data.code && data.code !== ResultEnum.SUCCESS) {
-					ElMessage.error(data.msg);
+				if (
+					data.code &&
+					data.code !== ResultEnum.SUCCESS &&
+					data.code !== 800 &&
+					data.code !== 801 &&
+					data.code !== 802 &&
+					data.code !== 803
+				) {
+					ElMessage.error(data.message);
 					return Promise.reject(data);
 				}
 				// 成功请求（在页面上除非特殊情况，否则不用处理失败逻辑）

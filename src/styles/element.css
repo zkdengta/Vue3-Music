@@ -1,0 +1,41 @@
+.el-popover {
+  min-width: 50px !important;
+  background-color: rgb(54 54 54) !important;
+  border: none !important;
+  box-shadow: 1px 1px 0 1px #000000 !important;
+}
+.el-collapse,
+.el-collapse-item__wrap {
+  border: none;
+}
+.el-table--enable-row-hover .el-table__body tr:hover>td {
+  background-color: var(--v-m-hover-bgc) !important;
+
+}
+.el-table::before {
+  background-color: transparent;
+}
+.pagination-wrapper .el-pagination button {
+  color: var(--v-m-text-color);
+  background-color: rgb(58 58 58) !important;
+  border-radius: 5px;
+}
+.pagination-wrapper .el-pagination button:hover {
+  background-color: transparent !important;
+}
+.pagination-wrapper .el-pager li {
+  color: var(--v-m-text-color);
+  background-color: rgb(43 43 43);
+  border: 1px solid rgb(54 54 54);
+  border-radius: 5px;
+}
+.pagination-wrapper .el-pager li:hover {
+  border: none;
+}
+.pagination-wrapper .is-active {
+  background-color: rgb(236 65 65);
+}
+.el-message {
+  background-color: rgb(43 43 43) !important;
+  border-color: rgb(48 48 48) !important;
+}

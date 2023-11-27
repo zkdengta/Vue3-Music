@@ -26,6 +26,7 @@
 			"@": ["src"],
 			"@/*": ["src/*"]
 		},
+    "types": ["element-plus/global"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]

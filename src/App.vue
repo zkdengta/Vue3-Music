@@ -1,24 +1,31 @@
 <script setup lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
+import appHeader from "@/components/appHeader.vue";
+import { RouterView } from "vue-router";
 </script>
 
 <template>
-	<router-view>
-		<HelloWorld msg="Vite + Vue" />
-	</router-view>
+	<div id="app">
+		<div class="header">
+			<appHeader />
+		</div>
+		<RouterView />
+	</div>
 </template>
 
 <style scoped>
-.logo {
-	height: 6em;
-	padding: 1.5em;
-	will-change: filter;
-	transition: filter 300ms;
-}
-.logo:hover {
-	filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-	filter: drop-shadow(0 0 2em #42b883aa);
+@media (width >= 1024px) {
+	header {
+		display: flex;
+		place-items: center;
+		padding-right: calc(var(--section-gap) / 2);
+	}
+	.logo {
+		margin: 0 2rem 0 0;
+	}
+	header .wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		place-items: flex-start;
+	}
 }
 </style>

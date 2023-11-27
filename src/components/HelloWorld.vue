@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getPlaylistMusicApi } from "@/api/modules/playlist";
+// import { getPlaylistMusicApi } from "@/api/index.js";
 import { ref } from "vue";
 
 defineProps<{ msg: string }>();
@@ -7,8 +7,8 @@ defineProps<{ msg: string }>();
 const count = ref("");
 
 async function getA() {
-	const { result } = await getPlaylistMusicApi();
-	console.log("data:---" + result[1].name);
+	// const { result } = await getPlaylistMusicApi();
+	// console.log("data:---" + result[1].name);
 }
 </script>
 
