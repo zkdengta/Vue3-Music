@@ -8,6 +8,8 @@ export interface Result {
 export interface ResultData<T = any> extends Result {
 	result: T;
 	data: T;
+	banners: T;
+	recommend: T;
 }
 
 // 分页响应参数

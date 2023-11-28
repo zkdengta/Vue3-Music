@@ -9,7 +9,24 @@ const router = createRouter({
 		},
 		{
 			path: "/index",
-			component: () => import("@/views/appIndex/appIndex.vue")
+			name: "Index",
+			redirect: "/index/find-music",
+			component: () => import("@/views/appIndex/appIndex.vue"),
+			children: [
+				{
+					path: "/index/find-music",
+					name: "FindMusic",
+					component: () => import("@/views/findMusic/findMusicIndex.vue"),
+					redirect: "/index/find-music/personalized-recommendations",
+					children: [
+						{
+							path: "/index/find-music/personalized-recommendations",
+							name: "PersonalizedRecommendations",
+							component: () => import("@/views/findMusic/personalizedRecommendations.vue")
+						}
+					]
+				}
+			]
 		}
 	]
 });

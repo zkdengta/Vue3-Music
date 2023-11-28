@@ -22,3 +22,13 @@ export function createQRcodeApi(key: string) {
 export function checkQRcodeStatusApi(key: string) {
 	return http.post<any>("/login/qr/check", { key });
 }
+
+// 获取banner
+export function getBannerApi(type: 0 | 1 | 2 | 3) {
+	return http.get<any>("/banner", { type }, { loading: true });
+}
+
+// 推荐歌单
+export function getDaylyRecommendPlaylistApi() {
+	return http.get<any>("/recommend/resource");
+}
