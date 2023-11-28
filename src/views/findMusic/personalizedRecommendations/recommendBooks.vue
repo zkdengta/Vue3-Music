@@ -1,12 +1,6 @@
 <template>
 	<div class="recommend-playlist">
-		<playlistCover class="item" :cover="dayRecommend">
-			<template #text>
-				<a style="font-size: 24px; font-weight: 600">
-					{{ nowDay }}
-				</a>
-			</template>
-		</playlistCover>
+		<playlistCover class="item" :cover="dayRecommend"> </playlistCover>
 
 		<playlistCover class="item" v-for="(item, index) in playlist" :key="index" :cover="item" />
 	</div>
@@ -23,20 +17,26 @@ defineProps({
 	}
 });
 const dayRecommend = reactive<PlaylistCover>({
-	id: "",
+	id: 0,
 	nickname: "",
 	playcount: 0,
-	path: "/index/dayly-songs-recommend",
-	picUrl: new URL("@/assets/dayRecommend.png", import.meta.url).href,
-	name: "每日歌曲推荐"
+	path: "",
+	picUrl: new URL("@/assets/history.png", import.meta.url).href,
+	name: "听过的有声书"
 });
-const nowDay = new Date().getDate();
 </script>
 
 <style scoped lang="scss">
 .recommend-playlist {
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	grid-gap: 15px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	.item {
+		width: 18% !important;
+	}
+	&::after {
+		width: 20%;
+		content: "";
+	}
 }
 </style>

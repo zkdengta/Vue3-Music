@@ -38,11 +38,11 @@ const props = defineProps({
 	},
 	height: {
 		type: String,
-		default: "175px"
+		default: "100%"
 	},
 	width: {
 		type: String,
-		default: "175px"
+		default: "100%"
 	}
 });
 

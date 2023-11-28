@@ -10,6 +10,7 @@ export interface ResultData<T = any> extends Result {
 	data: T;
 	banners: T;
 	recommend: T;
+	djRadios: T;
 }
 
 // 分页响应参数
