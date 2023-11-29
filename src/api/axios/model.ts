@@ -3,6 +3,7 @@ export interface Result {
 	code: number;
 	message: string;
 	more: boolean;
+	total: number;
 }
 
 // 请求响应参数（包含data）
