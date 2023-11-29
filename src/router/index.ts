@@ -22,7 +22,26 @@ const router = createRouter({
 						{
 							path: "/index/find-music/personalized-recommendations",
 							name: "PersonalizedRecommendations",
+							meta: {
+								keepAlive: true
+							},
 							component: () => import("@/views/findMusic/personalizedRecommendations.vue")
+						},
+						{
+							path: "/index/find-music/exclusive-custome",
+							name: "ExclusiveCustom",
+							meta: {
+								keepAlive: true
+							},
+							component: () => import("@/views/findMusic/exclusiveCustom.vue")
+						},
+						{
+							path: "/index/find-music/find-music-playlist",
+							name: "FindMusicPlaylist",
+							meta: {
+								keepAlive: true
+							},
+							component: () => import("@/views/findMusic/findMusicPlaylist.vue")
 						}
 					]
 				}

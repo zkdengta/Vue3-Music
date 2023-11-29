@@ -36,7 +36,9 @@ const routeKey = computed(() => {
 		}
 		.wrapper {
 			flex: 1;
-			height: calc(100vh - 142px);
+
+			// height: calc(100vh - 142px);
+			height: calc(100vh - 56px);
 			overflow-y: auto;
 		}
 	}

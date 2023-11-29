@@ -62,3 +62,26 @@ export function getHotDjsApi() {
 export function getRecommendMVApi() {
 	return http.get<any>("/personalized/mv");
 }
+
+// 精品歌单
+export function getBoutiquePlaylistApi(limit: number, before?: number) {
+	return http.get<any>(
+		"/top/playlist/highquality",
+		{
+			limit,
+			before
+		},
+		{
+			loading: true
+		}
+	);
+}
+
+// 歌单完整分类
+export function getPlaylistCategoryApi() {
+	return http.get<any>("/playlist/catlist", {}, { loading: true });
+}
+// 热门歌单分类
+export function getHotPlaylistCategoryApi() {
+	return http.get<any>("/playlist/hot");
+}

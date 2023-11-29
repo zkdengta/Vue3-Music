@@ -4,11 +4,13 @@
 			<SubTab :tabs="tabs" />
 		</div>
 		<div class="router-wrapper">
-			<RouterView class="router-wrapper__page" v-slot="{ Component }">
-				<KeepAlive>
-					<component :is="Component" />
-				</KeepAlive>
-			</RouterView>
+			<Suspense>
+				<RouterView class="router-wrapper__page" v-slot="{ Component }">
+					<KeepAlive>
+						<component :is="Component" />
+					</KeepAlive>
+				</RouterView>
+			</Suspense>
 			<!-- <Suspense>
 				<RouterView class="router-wrapper__page" />
 			</Suspense> -->

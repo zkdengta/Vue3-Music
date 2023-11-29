@@ -2,6 +2,7 @@
 export interface Result {
 	code: number;
 	message: string;
+	more: boolean;
 }
 
 // 请求响应参数（包含data）
@@ -11,6 +12,10 @@ export interface ResultData<T = any> extends Result {
 	banners: T;
 	recommend: T;
 	djRadios: T;
+	playlists: T;
+	categories: T;
+	sub: T;
+	tags: T;
 }
 
 // 分页响应参数
