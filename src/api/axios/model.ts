@@ -17,6 +17,9 @@ export interface ResultData<T = any> extends Result {
 	categories: T;
 	sub: T;
 	tags: T;
+	list: T;
+	playlist: T;
+	artists: T;
 }
 
 // 分页响应参数

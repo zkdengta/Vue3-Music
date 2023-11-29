@@ -42,6 +42,22 @@ const router = createRouter({
 								keepAlive: true
 							},
 							component: () => import("@/views/findMusic/findMusicPlaylist.vue")
+						},
+						{
+							path: "/index/find-music/rank",
+							name: "FindMusicRank",
+							meta: {
+								keepAlive: true
+							},
+							component: () => import("@/views/findMusic/findMusicRank.vue")
+						},
+						{
+							path: "/index/find-music/singer",
+							name: "FindMusicSinger",
+							meta: {
+								keepAlive: true
+							},
+							component: () => import("@/views/findMusic/findMusicSinger.vue")
 						}
 					]
 				}

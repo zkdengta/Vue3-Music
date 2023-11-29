@@ -96,3 +96,23 @@ interface GetPlaylistType {
 export function getPlaylistApi(params: GetPlaylistType) {
 	return http.get<any>("/top/playlist", params);
 }
+
+// 歌单详情
+export function getPlaylistDetailApi(id: number | string) {
+	return http.get<any>("/playlist/detail", { id });
+}
+// 获取音乐分类排行榜
+export function getMusicCategoryRankApi() {
+	return http.get<any>("/toplist", {}, { loading: true });
+}
+
+interface GetSingerListType {
+	limit: number;
+	offset?: number;
+	type: string;
+	area: string;
+	initial: string;
+}
+export function getSingerListApi(params: GetSingerListType) {
+	return http.get<any>("/artist/list", params, { loading: true });
+}
