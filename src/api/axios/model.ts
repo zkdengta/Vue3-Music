@@ -20,6 +20,8 @@ export interface ResultData<T = any> extends Result {
 	list: T;
 	playlist: T;
 	artists: T;
+	weekData: T;
+	monthData: T;
 }
 
 // 分页响应参数

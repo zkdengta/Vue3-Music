@@ -116,3 +116,20 @@ interface GetSingerListType {
 export function getSingerListApi(params: GetSingerListType) {
 	return http.get<any>("/artist/list", params, { loading: true });
 }
+
+// 新歌速递
+export function getNewMusicsApi(type: string) {
+	return http.get<any>("/top/song", { type }, { loading: true });
+}
+
+// 新碟上架
+export type AlbumArea = "ALL" | "ZH" | "EA" | "KR" | "JP";
+interface GetNewAlbumType {
+	type: "new" | "hot";
+	area: AlbumArea;
+	offset: number;
+	limit: number;
+}
+export function getNewAlbumApi(params: GetNewAlbumType) {
+	return http.get<any>("/top/album", params, { loading: true });
+}
