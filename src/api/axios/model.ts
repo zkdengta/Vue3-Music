@@ -10,6 +10,7 @@ export interface Result {
 export interface ResultData<T = any> extends Result {
 	result: T;
 	data: T;
+	datas: T;
 	banners: T;
 	recommend: T;
 	djRadios: T;
@@ -22,6 +23,7 @@ export interface ResultData<T = any> extends Result {
 	artists: T;
 	weekData: T;
 	monthData: T;
+	programs: T;
 }
 
 // 分页响应参数

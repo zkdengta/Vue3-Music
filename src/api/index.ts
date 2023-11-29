@@ -133,3 +133,70 @@ interface GetNewAlbumType {
 export function getNewAlbumApi(params: GetNewAlbumType) {
 	return http.get<any>("/top/album", params, { loading: true });
 }
+
+// 电台分类推荐
+export function getDjCategoryRecommendApi(type: number) {
+	return http.get<any>("/dj/recommend/type", { type });
+}
+
+// 电台分类
+export function getDjCategoryApi() {
+	return http.get<any>("/dj/catelist");
+}
+
+// 推荐节目
+export function getDjRecommendProgramApi() {
+	return http.get<any>("/program/recommend");
+}
+
+// 获取视频标签
+export function getVideoGroupApi() {
+	return http.get<any>("/video/group/list");
+}
+
+// 标签下的视频
+interface GetVideoByGroupType {
+	id: number;
+	offset?: number;
+}
+export function getVideoByGroupApi(params: GetVideoByGroupType) {
+	return http.get<any>("/video/group", params, { loading: true });
+}
+
+// 最新mv
+interface GetNewMVByAreaParams {
+	limit: number;
+	area?: string;
+}
+export function getNewMVByAreaApi(params: GetNewMVByAreaParams) {
+	return http.get<any>("/mv/first", params);
+}
+
+// 分类mv
+interface GetMvByOrderData {
+	offset?: number;
+	limit?: number;
+	order: string;
+	area?: string;
+	type?: string;
+}
+export function getMvByOrderApi(params: GetMvByOrderData) {
+	return http.get<any>("/mv/all", params);
+}
+
+// 网易出品mv
+export function getMvByExclusiveApi() {
+	return http.get<any>("/mv/exclusive/rcmd", {
+		limit: 6
+	});
+}
+
+// mv排行
+interface GetMvByRankParams {
+	limit: number;
+	area?: string;
+	offset?: number;
+}
+export function getMvByRankApi(params: GetMvByRankParams, loading: boolean = false) {
+	return http.get<any>("/top/mv", params, { loading });
+}

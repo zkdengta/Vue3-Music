@@ -68,6 +68,39 @@ const router = createRouter({
 							component: () => import("@/views/findMusic/findMusicNewMusic.vue")
 						}
 					]
+				},
+				{
+					path: "/index/podcast",
+					name: "Podcast",
+					component: () => import("@/views/podcast/podcastIndex.vue")
+				},
+				{
+					path: "/index/video",
+					name: "Video",
+					component: () => import("@/views/video/videoIndex.vue"),
+					redirect: "/index/video/video-index",
+					children: [
+						{
+							path: "/index/video/video-index",
+							name: "VideoIndex",
+							component: () => import("@/views/video/video/videoIndex.vue")
+						},
+						{
+							path: "/index/video/mv-index",
+							name: "MvIndex",
+							component: () => import("@/views/video/mv/mvIndex.vue")
+						}
+					]
+				},
+				{
+					path: "/index/follow",
+					name: "Follow",
+					component: () => import("@/views/other/other.vue")
+				},
+				{
+					path: "/index/private-fm",
+					name: "Private-Fm",
+					component: () => import("@/views/other/other.vue")
 				}
 			]
 		}
