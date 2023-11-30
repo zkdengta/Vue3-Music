@@ -74,7 +74,7 @@ import { ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import { getPlaylistMusicApi, getMusicUrlApi } from "@/api";
 import { stampToMin } from "@/utils/timeFormat";
-// import { useGlobalStore } from "@/stores/modules/global";
+import { useGlobalStore } from "@/store/global";
 const props = defineProps({
 	id: {
 		type: [String, Number],
@@ -85,7 +85,7 @@ const props = defineProps({
 		default: () => []
 	}
 });
-// const globalStore = useGlobalStore();
+const globalStore = useGlobalStore();
 const route = useRoute();
 const loading = ref(false);
 const tableData = ref<any[]>([]);
@@ -93,11 +93,11 @@ const getPlaylistMusic = () => {
 	loading.value = true;
 	if (!route.query.id && !props.id) {
 		tableData.value = props.data;
-		// globalStore.currentPlaylist = props.data;
+		globalStore.currentPlaylist = props.data;
 		loading.value = false;
 		return;
 	}
-	// globalStore.setCurrentPlaylist(Number(route.query.id) || (props.id as number));
+	globalStore.setCurrentPlaylist(Number(route.query.id) || (props.id as number));
 	getPlaylistMusicApi({ id: String(route.query.id || props.id) })
 		.then(res => {
 			tableData.value = res.songs;
@@ -116,11 +116,11 @@ getPlaylistMusic();
 
 const playMusic = (row: any) => {
 	getMusicUrlApi({
-		id: row.id
-		// level: globalStore.currentMusicLevel
+		id: row.id,
+		level: globalStore.currentMusicLevel
 	}).then(res => {
-		// globalStore.setAudioUrlAndId(res.data.data[0].url, row.id);
-		// globalStore.audioPlay();
+		globalStore.setAudioUrlAndId(res.data[0].url, row.id);
+		globalStore.audioPlay();
 	});
 };
 

@@ -8,12 +8,16 @@
 				<RouterView :key="routeKey" />
 			</div>
 		</div>
+		<div class="controller">
+			<appController />
+		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
 import { RouterView, useRoute } from "vue-router";
 import appMenus from "@/components/appMenus.vue";
+import appController from "@/components/appController.vue";
 
 import { computed } from "vue";
 const route = useRoute();
@@ -36,9 +40,7 @@ const routeKey = computed(() => {
 		}
 		.wrapper {
 			flex: 1;
-
-			// height: calc(100vh - 142px);
-			height: calc(100vh - 56px);
+			height: calc(100vh - 124px);
 			overflow-y: auto;
 		}
 	}

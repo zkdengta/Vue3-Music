@@ -246,3 +246,8 @@ interface likeCommentType {
 export function likeCommentApi(data: likeCommentType) {
 	return http.post<any>("/comment/like", data);
 }
+
+// 获取歌曲详情
+export function getMusicDetailApi(ids: string | number) {
+	return http.get<any>("/song/detail", { ids });
+}
