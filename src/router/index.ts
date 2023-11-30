@@ -101,6 +101,11 @@ const router = createRouter({
 					path: "/index/private-fm",
 					name: "Private-Fm",
 					component: () => import("@/views/other/other.vue")
+				},
+				{
+					path: "/index/playlist-detail",
+					name: "PlaylistDetail",
+					component: () => import("@/views/playlistDetail/playlistDetailIndex.vue")
 				}
 			]
 		}

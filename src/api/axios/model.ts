@@ -24,6 +24,10 @@ export interface ResultData<T = any> extends Result {
 	weekData: T;
 	monthData: T;
 	programs: T;
+	songs: T;
+	subscribers: T;
+	hotComments: T;
+	comments: T;
 }
 
 // 分页响应参数

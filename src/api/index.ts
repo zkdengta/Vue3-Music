@@ -1,4 +1,5 @@
 import http from "@/api/axios/request";
+import { currentMusicLevel } from "@/config/global";
 
 // 默认搜索关键字
 export function getDefaultSearchKeywordsApi() {
@@ -199,4 +200,49 @@ interface GetMvByRankParams {
 }
 export function getMvByRankApi(params: GetMvByRankParams, loading: boolean = false) {
 	return http.get<any>("/top/mv", params, { loading });
+}
+
+// 获取歌单所有歌曲
+interface GetPlaylistMusic {
+	id: number | string;
+	limit?: number;
+	offset?: number;
+}
+export function getPlaylistMusicApi(params: GetPlaylistMusic) {
+	return http.get<any>("/playlist/track/all", params);
+}
+
+// 获取音乐url
+interface GetMusicUrl {
+	id: string | number;
+	level?: currentMusicLevel;
+}
+export function getMusicUrlApi(params: GetMusicUrl, loading: boolean = false) {
+	return http.get<any>("/song/url/v1", params, { loading });
+}
+// 收藏者
+interface GetPlaylist {
+	id: string | number;
+	offset: number;
+	limit: number;
+}
+export function getPlaylistCollectorsApi(params: GetPlaylist) {
+	return http.get<any>("/playlist/subscribers", params);
+}
+// 歌单评论
+export function getPlaylistCommentsApi(params: GetPlaylist) {
+	return http.get<any>("/comment/playlist", params);
+}
+// 0: 歌曲 1: mv  2: 歌单 3: 专辑 4: 电台 5: 视频 6: 动态
+export type CType = 0 | 1 | 2 | 3 | 4 | 5 | 6;
+// 评论点赞
+interface likeCommentType {
+	id: number | string;
+	cid: number;
+	// 1点赞 0取消点赞
+	t: 1 | 0;
+	type: CType;
+}
+export function likeCommentApi(data: likeCommentType) {
+	return http.post<any>("/comment/like", data);
 }
